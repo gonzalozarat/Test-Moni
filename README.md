@@ -18,7 +18,6 @@ También se debe desarrollarse un sitio de administración en el que se puedan v
 
 ## Create environment
 ```
-export COMPOSE_FILE=local.yml
 docker-compose build
 docker-compose up
 CTRL + C
@@ -28,7 +27,6 @@ docker-compose web python manage.py createsuperuser
 
 ## Run Server
 ```
-export COMPOSE_FILE=local.yml
 docker-compose up
 ```
 
