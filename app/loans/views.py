@@ -32,43 +32,6 @@ def home(request):
     return render(request, 'home.html')
 
 
-@api_view(['GET', 'POST'])
-def new(request):
-    if request.method == 'GET':
-        loan = Loan.objects.all()
-        serializer = LoanSerializer(loan, many=True)
-        return Response(serializer.data)
-
-    elif request.method == 'POST':
-        serializer = LoanSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors)
-        
-
-
-@api_view(['GET', 'PUT', 'DELETE'])
-def detail(request, pk=None):
-    if request.method == 'GET':
-        loan = Loan.objects.filter(id=pk).first()
-        serializer = LoanSerializer(loan)
-        return Response(serializer.data)
-
-    elif request.method == 'PUT':
-        loan = Loan.objects.filter(id=pk).first()
-        serializer = LoanSerializer(loan, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)        
-        return Response(serializer.errors)
-
-    elif request.method == 'DELETE':
-        loan = Loan.objects.filter(id=pk).first()
-        loan.delete()
-        return Response('Eliminado')
-
-
 class LoanListViewSet(viewsets.ModelViewSet):
     """Loan List view set"""
     queryset = Loan.objects.all()

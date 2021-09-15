@@ -18,6 +18,5 @@ urlpatterns = [
     path('new_loan/', views.nuevo_prestamo, name='new_loan'),
     path('list_loans/', views.lista_prestamos, name='list_loans'),
     path('home/', views.home, name='home'),
-    path('lista_prestamos/<int:pk>/', views.detail, name='detallePrestamo'),
 ]
 urlpatterns += router.urls
