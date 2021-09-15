@@ -1,0 +1,99 @@
+{% extends 'base.html'%}
+{%load static%}
+
+{%block content%}
+
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+          <a href="{% url 'loans:home' %}" class="w3-bar-item w3-button"><b>Moni</b> Prestamos Online</a>
+      
+          <div class="w3-right w3-hide-small">              
+            <a href="{% url 'loans:list_loans' %}" class="w3-bar-item w3-button">Listado de Prestamos</a>
+            <a href="{% url 'users:login' %}" class="w3-bar-item w3-button">Iniciar Sesion</a>
+          </div>
+        </div>
+    </div>            
+
+
+    <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+        <img class="w3-image" src="{% static 'img/moni.png' %}" alt="Moni" width="1500" height="800">
+        <div class="w3-display-middle w3-margin-top w3-center">
+            <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Moni</b></span> <span class="w3-hide-small w3-text-light-grey">Solicitud de Prestamo</span></h1>
+        </div>
+    </header>
+
+    <div class="w3-content w3-padding" style="max-width:1564px">
+        <div class="row row-bottom-padded-md loan-form">
+            <h1>Solicitud de Prestamo</h1>
+            <form id="form"> 
+                <div class="form-group">
+                    <label for="first_name_id" class="ho">Nombre</label>
+                    <input id="first_name_id" name="first_name" class="form-control rounded" placeholder="Nombre" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="last_name_id" class="ho">Apellido</label>
+                    <input id="last_name_id" name="last_name" class="form-control" placeholder="Apellido" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="email_id" class="ho">Email</label>
+                    <input id="email_id" name="email" class="form-control" placeholder="Email" type="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="dni_id" class="ho">DNI</label>
+                    <input id="dni_id" name="dni" class="form-control" placeholder="DNI" type="number" min=1000000 max=100000000 required>
+                </div>
+                <div class="form-group">
+                    <label for="gender_id" class="ho">Sexo</label>
+                    <select name="gender" id="gender_id" class="form-control"></select>
+                </div>
+                <div class="form-group">
+                    <label for="amount_id" class="ho">Monto</label>
+                    <input id="amount_id" name="amount" placeholder="Monto" class="form-control" type="number" min=1 max=80000 required>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-lg btn-loan" id="ocultar" type="button">Solicitar Prestamo</button>
+                </div> 
+                <p class="text-danger text-bold error"></p>
+            </form>   
+        </div>
+    </div>    
+    
+            <div id='cargando'>
+                <h2 align="center"> Se esta evaluando el pedido...</h2>
+            </div>
+
+            <div id='aceptado'>
+                <br>          
+                <h2 align="center"> Su pedido ha sido aprobado, nos comunicaremos por mail para indicarle los pasos a seguir</h2>         
+                <p align="center"><a href="{% url 'loans:home' %}" title="Volver" class="w3-hover-text-green"> Volver al inicio</a>
+            </div>
+
+            <div id='rechazado'>
+                <br> 
+                <h2 align="center"> El pedido ha sido rechazado, usted no cumple con las condiciones necesarias para adquirir el prestamo</h2>       
+            <p align="center"><a href="{% url 'loans:new_loan' %}" title="Volver"class="w3-hover-text-green"> Solicitar otro prestamo</a>
+
+            </div>  
+            
+            <div id='err'>
+                <br> 
+                <h2 align="center"> Ha ocurrido un error, intenta nuevamente</h2>      
+            <p align="center"><a href="{% url 'loans:new_loan' %}" title="Volver" class="w3-hover-text-green"> Solicitar otro prestamo</a>
+            </div> 
+ 
+{%endblock%}
+
+{%block javascript%}
+
+    <script src="{% static 'js/list_genders.js'%}"
+        id="list-genders-script"
+        data-url-genders="{%url 'loans:genders-list' %}">
+    </script>
+  
+    <script src="{% static 'js/new_loan.js'%}"
+        id="new-loan-script"
+        data-csrftoken="{{ csrf_token }}"
+        data-url-loan="{%url 'loans:nuevoPrestamo-list' %}"
+        data-url-genders="{%url 'loans:genders-list' %}">
+    </script>
+{%endblock%}

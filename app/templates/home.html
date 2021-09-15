@@ -1,0 +1,77 @@
+{% extends 'base.html'%}
+{%load static%}
+
+
+
+<title>Prestamos Moni</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{%block body%}
+
+{%block content%}
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"><b>Moni</b> Prestamos Online</a>
+
+    <div class="w3-right w3-hide-small">
+      <a href="{% url 'loans:list_loans' %}" class="w3-bar-item w3-button">Listado de Prestamos</a>
+      <a href="{% url 'loans:new_loan' %}" class="w3-bar-item w3-button">Solicitar un Prestamo</a>
+      <a href="#about" class="w3-bar-item w3-button">Sobre Nosotros</a>
+      <a href="{% url 'users:login' %}" class="w3-bar-item w3-button">Iniciar Sesion</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="{% static 'img/moni.png' %}" alt="Moni" width="1500" height="800">
+  <div class="w3-display-middle w3-margin-top w3-center">
+    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Moni</b></span> <span class="w3-hide-small w3-text-light-grey">Prestamos Online</span></h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+
+  <!-- About Section -->
+  <div class="w3-container w3-padding-32" id="about">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Sobre Nosotros</h3>
+    <p>Hola! Soy Moni, tu billetera incondicional. <br>
+    <p>Baja la app de Moni 
+        Bajá la App <span><a href="https://play.google.com/store/apps/details?id=com.moni.android&hl=es_AR" title="MoniApp" target="_blank" class="w3-hover-text-green"> haciendo click AQUI</a></span>, completá tus datos y listo… simplificá tu vida!<br>
+        💵 Pedime un préstamo de hasta $30.000 en 6 cuotas<br>
+        📄 Pagá los servicios con o sin factura<br>
+        📲 Recargá el celu<br>
+        🚌 Cargá la SUBE<br>
+        💳 Comprá con MoniCard<br>
+        El préstamo es 100% online y se te acredita al instante. Para devolverme es muy fácil ya que podés usar cualquiera de los medios habilitados: Saldo de tu Billetera Moni, Tarjeta de débito, Transferencia o depósito a mi cuenta bancaria o Código de barra en Rapipago, Pago fácil u otra agencia de cobro.
+        Realizá tus pagos y recargas desde el celu, sin hacer filas y en el momento que quieras. Lo podés pagar con tu tarjeta de débito, con tu Billetera Moni o con un Préstamo.
+        Pedí GRATIS tu MoniCard. Vas a poder suscribirte a Netflix y Spotify, hacer compras online y también en comercios adheridos a Mastercard. Aprovechá nuestros descuentos! Cargala con tu tarjeta de débito o con un préstamo. Así, comprás ahora y me devolvés más adelante y en cuotas.
+        Moni #TeLoHagoMásSimple
+    </p>
+  </div>
+
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+  <h3>Visita nuestras redes sociales!</h3>
+
+
+  <img src="{% static 'img/instagram.png' %}" width="50" height="50" />
+  <p>Nuestro <a href="https://www.instagram.com/monibilletera/" title="Instagram" target="_blank" class="w3-hover-text-green">Instagram</a></p>
+
+  <img src="{% static 'img/facebook.png' %}" width="50" height="50" />
+  <p>Nuestra pagina de <a href="https://www.facebook.com/Moniprestamos/" title="Facebook" target="_blank" class="w3-hover-text-green">Facebook</a></p>
+
+  <img src="{% static 'img/youtube.png' %}" width="50" height="50" />
+  <p>Nuestro canal de <a href="https://www.youtube.com/channel/UCsnRxGaS96r67W1V5OvCDGQ" title="Youtube" target="_blank" class="w3-hover-text-green">Youtube</a></p>
+  
+</footer>
+
+{%endblock%}
+
+
+{%endblock%}

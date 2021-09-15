@@ -1,0 +1,22 @@
+[
+    {
+        "model":"loans.gender",
+        "fields":{
+            "name":"Femenino",
+            "slug_name": "F",
+            "created":"2020-02-01T12:00:00+03:00",
+            "modified":"2020-02-01T12:00:00+03:00"
+        },
+        "pk":1
+    },
+    {
+        "model":"loans.gender",
+        "fields":{
+            "name":"Masculino",
+            "slug_name":"M",
+            "created":"2020-02-01T12:00:00+03:00",
+            "modified":"2020-02-01T12:00:00+03:00"
+        },
+        "pk":2
+    }
+]
